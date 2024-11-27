@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Quicksand:wght@300..700&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Mali", cursive;
+    font-weight: 600;
+    font-style: normal;
+    background-color: #121212;
+    color: #e0e0e0; /* สีตัวอักษรเทาอ่อน */
+    scroll-behavior: smooth; /* การเลื่อนแบบนุ่มนวล */
+    transition: filter 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1f1f1f; /* สีเทาเข้ม */
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* เงาที่ดูโมเดิร์น */
+    transition: background-color 0.3s ease; /* แอนิเมชันเปลี่ยนสีพื้นหลัง */
+}
+
+.navbar img {
+    height: 50px; /* ขนาดของโลโก้ */
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #e0e0e0; /* สีตัวอักษรเทาอ่อน */
+    font-weight: 500;
+    padding: 8px 15px;
+    display: block;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease; /* แอนิเมชันเปลี่ยนสีตัวอักษรและพื้นหลัง */
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ff6600; /* สีเส้นใต้เมื่อโฮเวอร์ */
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ff6600; /* สีตัวอักษรเปลี่ยนเป็นสีส้มเมื่อโฮเวอร์ */
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; /* เส้นใต้ขยายเต็ม */
+}
+
+/* พื้นที่สำหรับใส่ข้อมูล */
+.section {
+    padding: 30px;
+    background-color: #1c1c1c; /* สีพื้นหลังของเนื้อหา */
+    border-radius: 8px; /* มุมมนเพื่อความโมเดิร์น */
+    margin: 20px auto; /* จัดกึ่งกลางหน้าจอ */
+    max-width: 80%; /* กำหนดความกว้างของส่วน */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* เงาเพื่อความลึก */
+    opacity: 0; /* เริ่มต้นที่มองไม่เห็น */
+    transform: translateY(30px); /* เริ่มต้นจากด้านล่าง */
+    transition: opacity 0.6s ease, transform 0.6s ease; /* แอนิเมชัน fade-in และเลื่อนขึ้น */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ใช้เมื่อ Section เข้ามาอยู่ใน Viewport */
+.section.in-view {
+    opacity: 1; /* ทำให้มองเห็น */
+    transform: translateY(0); /* เลื่อนขึ้นมาในตำแหน่งปกติ */
+}
+
+/* กำหนดขนาดและสไตล์ของรูปภาพ */
+.section img {
+    max-width: 60%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for the image */
+    display: block;
+    margin: 20px auto; /* Margin around the image */
+    object-fit: cover;
+    transition: .2s linear;
+}
+
+
+.section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video {
+    max-width: 100%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the video */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for the video */
+    margin: 20px auto; /* Margin around the video */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #f5f5f5; /* สีของหัวข้อเป็นสีขาว */
+}
+
+.button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button:hover::before {
+    width: 0;
+    height: 0;
+}
+
+.button:hover {
+    background-color: #ff3300;
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.wow {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wow:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.gallery-item {
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    max-width: 90%;
+    max-height: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff6600;
+}
+
+.nation-grid {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.nation {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    margin: 10px;
+    flex: 1 1 calc(33.333% - 40px);
+    box-sizing: border-box;
+}
+
+.nation img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.nation h3 {
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+
+.nation a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
